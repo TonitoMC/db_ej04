@@ -86,6 +86,14 @@ SELECT
   MIN(market) AS min_price
 FROM holo_prices;
 
+-- Cartas con precios disponibles en todas las condiciones
+SELECT c.id, c.name
+FROM cards c
+WHERE EXISTS (SELECT 1 FROM pricepoints WHERE card_id = c.id AND type = 'holofoil')
+  AND EXISTS (SELECT 1 FROM pricepoints WHERE card_id = c.id AND type = 'normal')
+  AND EXISTS (SELECT 1 FROM pricepoints WHERE card_id = c.id AND type = 'reverse')
+ORDER BY c.name;
+
 -- Ultima actualizacion
 SELECT MAX(price_date) AS last_update
 FROM pricepoints;
