@@ -30,6 +30,7 @@ Decidí optar por un diseño bastante simple, de esta manera facilitando un poco
   - $13.49
 
 4. ¿ Cuáles son las cartas que han bajado de precio en la última actualización ?
+
 Son demasiadas para listar, en el query se limita a las 5 con mayor cambio
 
   - Umbreon VMAX -$280.40
