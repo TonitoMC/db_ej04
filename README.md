@@ -30,10 +30,15 @@ Decidí optar por un diseño bastante simple, de esta manera facilitando un poco
   - $13.49
 
 4. ¿ Cuáles son las cartas que han bajado de precio en la última actualización ?
+Son demasiadas para listar, en el query se limita a las 5 con mayor cambio
 
-  - Temp
+  - Umbreon VMAX -$280.40
+  - Umbreon ex -$58l.69
+  - Giratina V -$44.84
+  - Gengar VMAX -$42.05
+  - Sylveon ex -$39.63
 
-5. ¿ Qué tipo de Pokémon tiene el precio promedio más alto en holofoil ?
+6. ¿ Qué tipo de Pokémon tiene el precio promedio más alto en holofoil ?
 
   - Dragón con un promedio de $28.60
 
