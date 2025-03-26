@@ -41,8 +41,8 @@ WHERE
 SELECT
   c.name,
   p_feb.type,
-  p_feb.market AS feb_price
-  p_mar.market AS mar_price
+  p_feb.market AS feb_price,
+  p_mar.market AS mar_price,
   (p_mar.market - p_feb.market) AS price_change
 FROM
   (SELECT * FROM pricepoints WHERE month = 'feb') p_feb
@@ -51,7 +51,8 @@ JOIN
   ON p_feb.card_id = p_mar.card_id AND p_feb.type = p_mar.type
 JOIN cards c ON p_feb.card_id = c.id
 WHERE p_mar.market < p_feb.market
-ORDER BY price_change ASC;
+ORDER BY price_change ASC
+LIMIT 10;
 
 -- Tipo de pokemon mas caro en Holo (Toma en cuenta feb y marzo)
 
@@ -66,3 +67,24 @@ WHERE
 GROUP BY c.type
 ORDER BY avg_holo DESC
 LIMIT 1;
+
+-- Dif de precios en holo
+WITH holo_prices AS (
+  SELECT
+    c.name,
+    p.market
+  FROM pricepoints p
+  JOIN cards c ON p.card_id = c.id
+  WHERE p.type = 'holofoil'
+)
+SELECT
+  MAX(market) - MIN(market) AS price_diff,
+  MAX(market) AS max_price,
+  MIN(market) AS min_price
+FROM holo_prices;
+
+-- Ultima actualizacion
+SELECT MAX(price_date) AS last_update
+FROM pricepoints;
+
+

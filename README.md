@@ -14,3 +14,5 @@ Respuestas a las preguntas (temp)
 4.  Una listota
 
 5.  Dragon - 28.60
+
+6.  $1747.68 (Comparando precio de mercado de ambas actualizaciones)
