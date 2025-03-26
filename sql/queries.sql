@@ -12,7 +12,8 @@ ORDER BY p.market DESC
 LIMIT 5;
 
 -- Cartas con precio arriba de 100 en holofoil
--- Las cartas son unicas, se filtran en pricepoints de holo + market > 100.
+-- Las cartas son unicas, se filtran en pricepoints de holo + market > 100. Toma en cuenta si una
+-- tuvo un precio > 100 en cualquier update
 SELECT COUNT(DISTINCT card_id) AS cards_holo_100
 FROM pricepoints
 WHERE
@@ -48,14 +49,15 @@ FROM
   (SELECT * FROM pricepoints WHERE month = 'feb') p_feb
 JOIN
   (SELECT * FROM pricepoints WHERE month = 'mar') p_mar
-  ON p_feb.card_id = p_mar.card_id AND p_feb.type = p_mar.type
+  ON p_feb.card_id = p_mar.card_id AND p_feb.type = p_mar.type -- El tipo debe ser el mismo, no se puede comparar un holo con una normal anterior
 JOIN cards c ON p_feb.card_id = c.id
 WHERE p_mar.market < p_feb.market
 ORDER BY price_change ASC
-LIMIT 10;
+LIMIT 5; -- Son bastantes, limit a 5
 
 -- Tipo de pokemon mas caro en Holo (Toma en cuenta feb y marzo)
-
+-- Usando market price, pienso que si hubiera querido highest y lowest
+-- se hubiera especificado
 SELECT
   c.type AS pokemon_type,
   AVG(p.market) AS avg_holo
@@ -68,7 +70,8 @@ GROUP BY c.type
 ORDER BY avg_holo DESC
 LIMIT 1;
 
--- Dif de precios en holo
+-- Diferencia entre carta mas cara y mas barata en holo
+-- Usando market price
 WITH holo_prices AS (
   SELECT
     c.name,
@@ -87,18 +90,6 @@ FROM holo_prices;
 SELECT MAX(price_date) AS last_update
 FROM pricepoints;
 
--- Precio de mercado historico
-SELECT DISTINCT ON (c.type)
-  c.name,
-  c.type AS pokemon_type,
-  p.high AS price -- Precio mas alto historico, por precio de mercado historico es lo mismo
-FROM pricepoints p
-JOIN cards c ON p.card_id = c.id
-WHERE
-  c.supertype = 'Pokémon' AND
-  c.type IS NOT NULL
-ORDER BY c.type, p.market DESC;
-
 -- Cartas con mayor diferencia
 SELECT
   c.name,
@@ -111,4 +102,18 @@ WHERE p.type = 'holofoil'
 GROUP BY c.id, c.name
 ORDER BY price_difference DESC
 LIMIT 3;
+
+-- Precio de mercado historico
+SELECT DISTINCT ON (c.type)
+  c.name,
+  c.type AS pokemon_type,
+  p.high AS price -- Precio mas alto historico, por precio de mercado historico es lo mismo
+FROM pricepoints p
+JOIN cards c ON p.card_id = c.id
+WHERE
+  c.supertype = 'Pokémon' AND
+  c.type IS NOT NULL
+ORDER BY c.type, p.market DESC;
+
+
 
