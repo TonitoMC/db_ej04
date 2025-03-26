@@ -87,4 +87,28 @@ FROM holo_prices;
 SELECT MAX(price_date) AS last_update
 FROM pricepoints;
 
+-- Precio de mercado historico
+SELECT DISTINCT ON (c.type)
+  c.name,
+  c.type AS pokemon_type,
+  p.high AS price -- Precio mas alto historico, por precio de mercado historico es lo mismo
+FROM pricepoints p
+JOIN cards c ON p.card_id = c.id
+WHERE
+  c.supertype = 'Pokémon' AND
+  c.type IS NOT NULL
+ORDER BY c.type, p.market DESC;
+
+-- Cartas con mayor diferencia
+SELECT
+  c.name,
+  MAX(p.high) - MIN(p.low) AS price_difference,
+  MAX(p.high) AS highest,
+  MIN(p.low) AS lowest
+FROM pricepoints p
+JOIN cards c ON p.card_id = c.id
+WHERE p.type = 'holofoil'
+GROUP BY c.id, c.name
+ORDER BY price_difference DESC
+LIMIT 3;
 
