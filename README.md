@@ -39,7 +39,7 @@ Son demasiadas para listar, en el query se limita a las 5 con mayor cambio
   - Gengar VMAX -$42.05
   - Sylveon ex -$39.63
 
-6. ¿ Qué tipo de Pokémon tiene el precio promedio más alto en holofoil ?
+5. ¿ Qué tipo de Pokémon tiene el precio promedio más alto en holofoil ?
 
   - Dragón con un promedio de $28.60
 
@@ -47,7 +47,11 @@ Son demasiadas para listar, en el query se limita a las 5 con mayor cambio
 
   - $1747.68 comparando precio de mercado en ambas actualizaciones
 
-8. ¿ Cuál fue la fecha más reciente de actualización de precios ?
+7. ¿ Cuántas cartas tienen precios disponibles en todas las condiciones (normal, reverse holofoil y holofoil) ?
+
+- 1, solo butterfree
+
+9. ¿ Cuál fue la fecha más reciente de actualización de precios ?
 
   - 17-03-2025
 
