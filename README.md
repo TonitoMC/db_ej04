@@ -15,28 +15,54 @@ Decidí optar por un diseño bastante simple, de esta manera facilitando un poco
 
 1. ¿ Cuáles son las 5 cartas más caras actualmente en el mercado (holofoil) ?
 
-- Umbreon ex - $1552.15
-- Umbreon VMAX - 1467.33
-- Rayquaza VMAX - 803.64
-- Gengar VMAX - 682.49
-- Giratina V - 663.36
+  - Umbreon ex - $1552.15
+  - Umbreon VMAX - 1467.33
+  - Rayquaza VMAX - 803.64
+  - Gengar VMAX - 682.49
+  - Giratina V - 663.36
 
 2. ¿ Cuántas cartas tienen un precio de mercado en holofoil mayor a $100 ?
 
-- En ambos meses (históricamente) 74, actualmente (solo marzo) 72
+  - En ambos meses (históricamente) 74, actualmente (solo marzo) 72
 
 3. ¿ Cuál es el precio promedio de una carta en holofoil en la última actualización ?
 
-- $13.49
+  - $13.49
 
 4. ¿ Cuáles son las cartas que han bajado de precio en la última actualización ?
 
-- Temp
+  - Temp
 
 5. ¿ Qué tipo de Pokémon tiene el precio promedio más alto en holofoil ?
 
-- Dragón con un promedio de $28.60
+  - Dragón con un promedio de $28.60
 
 6. ¿ Cuál es la diferencia de precio entre la carta más cara y la más barata en holofoil ?
 
-- $1747.68 comparando precio de mercado en ambas actualizaciones
+  - $1747.68 comparando precio de mercado en ambas actualizaciones
+
+8. ¿ Cuál fue la fecha más reciente de actualización de precios ?
+
+  - 17-03-2025
+
+9. ¿ Cuáles son las 3 cartas con la  mayor diference entre el precio más alto y el más bajo en holofoil?
+
+  Se tomó en cuenta el precio más alto y más bajo histórico (febrero + marzo)
+
+  - Cinccino - 10,387.34
+  - Iron Leaves ex - 9,998.86
+  - Walking Wake ex - 9,998.78
+
+10. ¿ Cuál es la carta más cara de cada tipo de Pokémon ?
+
+  - Colorless - Dark Dragonite
+  - Darkness - Umbreon Max
+  - Dragon - Rayquaza Max
+  - Fighting - Greninja Ex
+  - Fire - Charizard
+  - Grass - Leafon VMAX
+  - Lightning - Pikachu Ex
+  - Metal - Gholdengo ex
+  - Psychic - Sylveon ex
+  - Agua - Glaceon VMAX
+
