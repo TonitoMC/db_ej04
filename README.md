@@ -40,31 +40,31 @@ Son demasiadas para listar, en el query se limita a las 5 con mayor cambio
   - Sylveon ex -$39.63
 
 5. ¿ Qué tipo de Pokémon tiene el precio promedio más alto en holofoil ?
-
+  Tome en cuenta ambos pricepoints (febrero y marzo)
   - Dragón con un promedio de $28.60
 
 6. ¿ Cuál es la diferencia de precio entre la carta más cara y la más barata en holofoil ?
-
+  Tome en cuenta el precio de mercado en ambos pricepoints (febrero y marzo)
   - $1747.68 comparando precio de mercado en ambas actualizaciones
 
 7. ¿ Cuántas cartas tienen precios disponibles en todas las condiciones (normal, reverse holofoil y holofoil) ?
-
+Tome en cuenta el pricepoint en cualquiera de las actualizaciones
 - 1, solo butterfree
 
-9. ¿ Cuál fue la fecha más reciente de actualización de precios ?
+8. ¿ Cuál fue la fecha más reciente de actualización de precios ?
 
   - 17-03-2025
 
 9. ¿ Cuáles son las 3 cartas con la  mayor diference entre el precio más alto y el más bajo en holofoil?
 
-  Se tomó en cuenta el precio más alto y más bajo histórico (febrero + marzo)
+  Se tomó en cuenta el precio más alto y más bajo histórico (febrero + marzo), no se combinaron el mas alto y bajo en una actualizacion especifica
 
   - Cinccino - 10,387.34
   - Iron Leaves ex - 9,998.86
   - Walking Wake ex - 9,998.78
 
 10. ¿ Cuál es la carta más cara de cada tipo de Pokémon ?
-
+  Utilice el precio de mercado historico, pero en el mercado actual las cartas son las mismas (solo cambian los precios un poco)
   - Colorless - Dark Dragonite
   - Darkness - Umbreon Max
   - Dragon - Rayquaza Max
