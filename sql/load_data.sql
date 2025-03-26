@@ -1,3 +1,5 @@
+-- Creacion de tabla de staging, para almacenar la informacion del CSV
+-- y luego hacer queries sobre ella para insertar a las demas tablas.
 CREATE TABLE IF NOT EXISTS staging (
   id varchar,
   name varchar,
@@ -16,6 +18,7 @@ CREATE TABLE IF NOT EXISTS staging (
   month varchar
 );
 
+-- Insercion de datos, truncamos la tabla 'por si las moscas' y copiamos del CSV
 TRUNCATE TABLE staging;
 \copy staging FROM '../data/clean_data.csv' WITH (FORMAT CSV, HEADER, NULL '');
 
@@ -27,6 +30,7 @@ CREATE TABLE IF NOT EXISTS cards (
   type VARCHAR
 );
 
+-- Insercion de datos, se hacen queries sobre staging para obtener la informacion de las cargas
 INSERT INTO cards (id, name, supertype, type)
 SELECT DISTINCT
   id,
@@ -36,9 +40,7 @@ SELECT DISTINCT
 FROM staging
 ON CONFLICT (id) DO NOTHING;
 
--- Carga la informacion de los precios
-
--- Creacion de tabla de pricepoints
+-- Creacion de tabla de pricepoints, para almacenar los precios de las cartas
 CREATE TABLE IF NOT EXISTS pricepoints (
   id SERIAL PRIMARY KEY,
   card_id VARCHAR NOT NULL REFERENCES cards (id),
@@ -50,8 +52,10 @@ CREATE TABLE IF NOT EXISTS pricepoints (
   price_date date
 );
 
+-- Truncamos la tabla 'por si las moscas'
 TRUNCATE TABLE pricepoints;
 
+-- Insertamos informacion a sobre los pricepoints de las cartas normales
 INSERT INTO pricepoints (card_id, month, type, high, low, market, price_date)
   SELECT
     id AS card_id,
@@ -64,6 +68,7 @@ INSERT INTO pricepoints (card_id, month, type, high, low, market, price_date)
   FROM staging
   WHERE normal_market IS NOT NULL;
 
+-- Insertamos informacion sobre los pricepoints de las cartas reverse holo
 INSERT INTO pricepoints (card_id, month, type, high, low, market, price_date)
   SELECT
     id AS card_id,
@@ -76,6 +81,7 @@ INSERT INTO pricepoints (card_id, month, type, high, low, market, price_date)
   FROM staging
   WHERE reverse_market IS NOT NULL;
 
+-- Insertamos informacion sobre los pricepoints de las cartas holofoil
 INSERT INTO pricepoints (card_id, month, type, high, low, market, price_date)
   SELECT
     id AS card_id,
